@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WHATILEX – Software Solutions</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">WHAT<span>ILEX</span></div>
+
+  <div class="sag-ust">
+    <button onclick="dilDegistir('tr')">TR</button>
+    <button onclick="dilDegistir('en')">EN</button>
+  </div>
+</header>
+
+<section class="hero">
+  <h1 id="heroTitle">İşinizi Dijital Dünyaya Taşıyoruz</h1>
+  <p id="heroDesc">WHATILEX modern web siteleri, yazılım çözümleri ve dijital altyapılar geliştirir.</p>
+  <a href="#contact" class="btn" id="heroBtn">Bizimle İletişime Geç</a>
+</section>
+
+<section class="section dark">
+  <h2 id="servicesTitle">Hizmetlerimiz</h2>
+  <div class="kartlar">
+    <div class="kart" id="srv1">Web Sitesi Geliştirme</div>
+    <div class="kart" id="srv2">Kurumsal Yazılım Çözümleri</div>
+    <div class="kart" id="srv3">Gafik Tasarım</div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <h2 id="contactTitle">Bize Ulaşın</h2>
+
+  <form id="contactForm">
+
+    <div class="form-group">
+      <input type="text" name="name" required placeholder=" ">
+      <label id="nameLabel">Adınız</label>
+    </div>
+
+    <div class="form-group">
+      <input type="email" name="email" required placeholder=" ">
+      <label id="mailLabel">E-Posta Adresiniz</label>
+    </div>
+
+    <div class="form-group">
+      <textarea name="message" required placeholder=" "></textarea>
+      <label id="msgLabel">Mesajınız</label>
+    </div>
+
+    <button type="submit" id="sendBtn">Gönder</button>
+  </form>
+
+  <p id="successMessage" style="display:none; color:#22d3ee; margin-top:20px;">
+    Mesajınız başarıyla gönderildi.
+  </p>
+
+</section>
+
+<footer>
+  © 2026 WHATILEX
+</footer>
+
+<script>
+const form = document.getElementById("contactForm");
+const successMessage = document.getElementById("successMessage");
+
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+  const formData = new FormData(form);
+
+  const response = await fetch("https://formspree.io/f/xreabygp", {
+    method: "POST",
+    body: formData,
+    headers: { 'Accept': 'application/json' }
+  });
+
+  if(response.ok){
+    form.style.display="none";
+    successMessage.style.display="block";
+    form.reset();
+  } else {
+    alert("Gönderim başarısız.");
+  }
+});
+
+/* Dil sistemi */
+const dil = {
+  tr:{
+    heroTitle:"İşinizi Dijital Dünyaya Taşıyoruz",
+    heroDesc:"WHATILEX modern web siteleri, yazılım çözümleri ve dijital altyapılar geliştirir.",
+    heroBtn:"Bizimle İletişime Geç",
+    services:"Hizmetlerimiz",
+    srv1:"Web Sitesi Geliştirme",
+    srv2:"Kurumsal Yazılım Çözümleri",
+    srv3:"Grafik Tasarım",
+    contact:"Bize Ulaşın",
+    name:"Adınız",
+    mail:"E-Posta Adresiniz",
+    msg:"Mesajınız",
+    send:"Gönder",
+    sent:"Mesajınız başarıyla gönderildi."
+  },
+  en:{
+    heroTitle:"We Build Digital Experiences",
+    heroDesc:"WHATILEX develops modern websites, software solutions and digital systems.",
+    heroBtn:"Contact Us",
+    services:"Our Services",
+    srv1:"Website Development",
+    srv2:"Corporate Software Solutions",
+    srv3:"Graphic Design",
+    contact:"Contact Us",
+    name:"Your Name",
+    mail:"Your Email",
+    msg:"Your Message",
+    send:"Send",
+    sent:"Your message has been sent."
+  }
+}
+
+function dilDegistir(d){
+  document.getElementById("heroTitle").innerText=dil[d].heroTitle;
+  document.getElementById("heroDesc").innerText=dil[d].heroDesc;
+  document.getElementById("heroBtn").innerText=dil[d].heroBtn;
+  document.getElementById("servicesTitle").innerText=dil[d].services;
+  document.getElementById("srv1").innerText=dil[d].srv1;
+  document.getElementById("srv2").innerText=dil[d].srv2;
+  document.getElementById("srv3").innerText=dil[d].srv3;
+  document.getElementById("contactTitle").innerText=dil[d].contact;
+  document.getElementById("nameLabel").innerText=dil[d].name;
+  document.getElementById("mailLabel").innerText=dil[d].mail;
+  document.getElementById("msgLabel").innerText=dil[d].msg;
+  document.getElementById("sendBtn").innerText=dil[d].send;
+  successMessage.innerText=dil[d].sent;
+}
+</script>
+
+</body>
+</html>
