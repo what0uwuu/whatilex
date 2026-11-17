@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WHATILEX – Yazılım & Dijital Çözümler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6F7FB;--surf:#FFFFFF;--ink:#0E1424;--mute:#5A6379;--line:#DDE1EC;--what:#0A74C9;--ilex:#8A3FE8;--wa:#1FA855;--wa-ink:#fff;--glow:rgba(138,63,232,.14);--grad:linear-gradient(120deg,var(--what),var(--ilex));--sh:0 28px 60px -28px rgba(30,40,90,.35);
+--fd:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--fb:"Instrument Sans","Segoe UI",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#080C18;--surf:#0F1526;--ink:#EEF1F8;--mute:#98A2BC;--line:#1E2842;--what:#5CC8FF;--ilex:#B98CFF;--wa:#25D366;--wa-ink:#052B14;--glow:rgba(139,92,246,.24);--sh:0 28px 60px -28px rgba(0,0,0,.8)}}
+:root[data-theme="dark"]{--bg:#080C18;--surf:#0F1526;--ink:#EEF1F8;--mute:#98A2BC;--line:#1E2842;--what:#5CC8FF;--ilex:#B98CFF;--wa:#25D366;--wa-ink:#052B14;--glow:rgba(139,92,246,.24);--sh:0 28px 60px -28px rgba(0,0,0,.8)}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(76px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--fb);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--what);outline-offset:3px;border-radius:6px}
+.w{width:min(1160px,100% - 2.5rem);margin-inline:auto}
+.what{color:var(--what)}.ilex{color:var(--ilex)}
+h1,h2,h3{font-family:var(--fd);line-height:1.08;letter-spacing:-.02em}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:1rem}
+.logo{font:800 1.45rem var(--fd);letter-spacing:-.03em}
+.links{display:flex;gap:1.75rem;font-weight:500;font-size:.97rem;color:var(--mute)}
+.links a:hover{color:var(--ink)}
+.tools{display:flex;align-items:center;gap:.6rem}
+.lang{display:flex;border:1px solid var(--line);border-radius:99px;padding:3px;background:var(--surf)}
+.lang button{border:0;background:none;color:var(--mute);font:600 .8rem var(--fb);padding:.35rem .7rem;border-radius:99px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.ic{width:42px;height:42px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:var(--surf);transition:.2s}
+.ic:hover{border-color:var(--ilex);color:var(--ilex)}
+.ic svg{width:20px;height:20px}
+.menu{display:none;cursor:pointer;font-size:0}
+.menu svg{width:22px;height:22px}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font:600 1rem var(--fb);padding:.9rem 1.5rem;border-radius:99px;border:1px solid transparent;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn svg{width:20px;height:20px}
+.btn.wa{background:var(--wa);color:var(--wa-ink);box-shadow:0 10px 26px -12px var(--wa)}
+.btn.wa:hover{transform:translateY(-2px);box-shadow:0 10px 28px -8px var(--wa)}
+.btn.gh{border-color:var(--line);background:var(--surf)}
+.btn.gh:hover{border-color:var(--ilex);transform:translateY(-2px)}
+/* hero */
+.hero{padding:clamp(3.5rem,9vw,7rem) 0 clamp(3rem,7vw,5.5rem);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-10% -10% auto auto;width:760px;height:760px;background:radial-gradient(circle at 60% 40%,var(--glow),transparent 62%);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;opacity:.45;-webkit-mask-image:radial-gradient(ellipse at 30% 30%,#000,transparent 70%);mask-image:radial-gradient(ellipse at 30% 30%,#000,transparent 70%);pointer-events:none}
+.hero .w{position:relative;z-index:1}
+.hero .w{display:grid;grid-template-columns:1.25fr .75fr;gap:3rem;align-items:center}
+.word{font:800 clamp(3rem,10.5vw,8.2rem)/.9 var(--fd);letter-spacing:-.045em}
+.hero p.lead{font-size:clamp(1.1rem,2vw,1.35rem);color:var(--mute);max-width:34ch;margin:1.6rem 0 2rem}
+.cta{display:flex;flex-wrap:wrap;gap:.8rem}
+.chat{background:var(--surf);border:1px solid var(--line);border-radius:22px;padding:1.1rem;max-width:380px;justify-self:end;width:100%;box-shadow:var(--sh);transform:rotate(1.5deg)}
+.chat .top{display:flex;align-items:center;gap:.7rem;padding-bottom:.9rem;border-bottom:1px solid var(--line);font-weight:600}
+.chat .av{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:800 .8rem var(--fd)}
+.chat small{display:block;color:var(--wa);font-weight:500;font-size:.78rem}
+.b{margin-top:.8rem;padding:.7rem .95rem;border-radius:16px;font-size:.95rem;max-width:88%;line-height:1.45}
+.b.in{background:color-mix(in srgb,var(--ink) 7%,transparent);border-bottom-left-radius:4px}
+.b.out{background:var(--wa);color:var(--wa-ink);margin-left:auto;border-bottom-right-radius:4px;font-weight:500}
+.b.out{animation:pop .5s .6s both}.b.in.late{animation:pop .5s 1.6s both}
+@keyframes pop{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+/* sections */
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.sh{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.8rem}
+.sh h2{font-size:clamp(2rem,4.6vw,3.4rem);max-width:16ch}
+.sh p{color:var(--mute);max-width:42ch}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.1rem}
+.card{background:var(--surf);padding:1.7rem 1.5rem;border:1px solid var(--line);border-radius:22px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--ilex) 55%,var(--line));box-shadow:var(--sh)}
+.card svg{width:50px;height:50px;padding:12px;border-radius:15px;background:color-mix(in srgb,var(--what) 12%,transparent);stroke:var(--what);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-bottom:1.2rem}
+.card:nth-child(even) svg{stroke:var(--ilex);background:color-mix(in srgb,var(--ilex) 13%,transparent)}
+.card h3{font-size:1.2rem;margin-bottom:.45rem}
+.card p{color:var(--mute);font-size:.96rem;line-height:1.55}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.5rem;counter-reset:s}
+.step{border-top:3px solid;border-image:var(--grad) 1;padding-top:1.2rem;counter-increment:s;position:relative}
+.step::before{content:counter(s);font:800 2.6rem var(--fd);color:var(--ilex);display:block;line-height:1;margin-bottom:.7rem}
+.step:nth-child(odd)::before{color:var(--what)}
+.step h3{font-size:1.2rem;margin-bottom:.3rem}.step p{color:var(--mute);font-size:.96rem}
+.tech{display:flex;flex-wrap:wrap;gap:.6rem}
+.tech span{border:1px solid var(--line);background:var(--surf);padding:.5rem 1.05rem;border-radius:99px;font-weight:500;font-size:.95rem}
+.tech span{transition:.2s}.tech span:hover{border-color:var(--what);transform:translateY(-2px)}
+.why>div{border-left:3px solid var(--ilex);padding-left:1.1rem}.why>div:nth-child(even){border-color:var(--what)}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;margin-top:3rem}
+.why h3{font-size:1.3rem;margin-bottom:.4rem}.why p{color:var(--mute)}
+/* contact */
+.contact{background:radial-gradient(ellipse at 85% 0%,var(--glow),transparent 55%),var(--surf);border-block:1px solid var(--line)}
+.contact .w{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.contact h2{font-size:clamp(2rem,4.6vw,3.4rem);margin-bottom:1rem}
+.contact p.sub{color:var(--mute);max-width:38ch;margin-bottom:1.6rem}
+.sl{display:flex;flex-direction:column;gap:.8rem;align-items:flex-start}
+form{display:grid;gap:1rem;background:var(--bg);border:1px solid var(--line);padding:1.8rem;border-radius:26px;box-shadow:var(--sh)}
+label{display:grid;gap:.4rem;font-weight:600;font-size:.9rem}
+input,select,textarea{font:400 1rem var(--fb);color:var(--ink);background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:.8rem .95rem;width:100%}
+textarea{min-height:130px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--what);outline-offset:1px}
+form .btn{justify-content:center}
+.note{font-size:.84rem;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:2.2rem 0;color:var(--mute);font-size:.92rem}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;align-items:center}
+.fab{position:fixed;right:max(1.1rem,env(safe-area-inset-right,0px));bottom:calc(1.1rem + env(safe-area-inset-bottom,0px));z-index:70;width:58px;height:58px;border-radius:50%;background:var(--wa);color:var(--wa-ink);display:grid;place-items:center;box-shadow:0 12px 30px -8px rgba(0,0,0,.45);transition:transform .2s}
+.fab:hover{transform:scale(1.07)}.fab svg{width:30px;height:30px}
+@media (max-width:900px){
+.hero .w,.contact .w{grid-template-columns:1fr}.chat{justify-self:start}
+.links{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);padding:.5rem 1.25rem 1rem}
+.links.open{display:flex}.links a{padding:.8rem 0;border-bottom:1px solid var(--line)}
+.menu{display:grid}.tools .ic.ig{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M20.5 3.5A11.9 11.9 0 0 0 12 0 12 12 0 0 0 1.6 17.9L0 24l6.3-1.6A12 12 0 1 0 20.5 3.5z"/><path fill="var(--wa-ink)" d="M17.4 14.4c-.3-.1-1.7-.8-2-.9s-.5-.1-.7.1-.8.9-.9 1.1-.3.2-.6.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.9-2c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.6-.3z"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+</svg>
+
+<header>
+<div class="w nav">
+<a href="#top" class="logo" aria-label="WHATILEX"><span class="what">WHAT</span><span class="ilex">ILEX</span></a>
+<nav class="links" id="links">
+<a href="#services" data-t="nav1">Hizmetler</a>
+<a href="#process" data-t="nav2">Süreç</a>
+<a href="#tech" data-t="nav3">Teknolojiler</a>
+<a href="#contact" data-t="nav4">İletişim</a>
+</nav>
+<div class="tools">
+<div class="lang" role="group" aria-label="Language"><button data-l="tr" aria-pressed="true">TR</button><button data-l="en" aria-pressed="false">EN</button></div>
+<a class="ic ig" href="https://instagram.com/whatilex" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+<a class="ic" data-wa href="#" target="_blank" rel="noopener" aria-label="WhatsApp" style="color:var(--wa)"><svg><use href="#i-wa"/></svg></a>
+<button class="ic menu" id="menu" aria-label="Menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div>
+</div>
+</header>
+
+<main id="top">
+<div class="hero"><div class="w">
+<div>
+<h1 class="word"><span class="what">WHAT</span><span class="ilex">ILEX</span></h1>
+<p class="lead" data-t="lead">Web, mobil ve özel yazılım çözümleriyle fikrinizi çalışan bir ürüne dönüştürüyoruz.</p>
+<div class="cta">
+<a class="btn wa" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-t="cta1">WhatsApp’tan yazın</span></a>
+<a class="btn gh" href="#services" data-t="cta2">Hizmetleri keşfedin</a>
+</div>
+</div>
+<div class="chat" aria-hidden="true">
+<div class="top"><div class="av">WI</div><div>WHATILEX<small data-t="online">çevrimiçi</small></div></div>
+<div class="b out" data-t="m1">Merhaba, e-ticaret sitesi yaptırmak istiyorum.</div>
+<div class="b in late" data-t="m2">Merhaba! Projenizi dinleyelim, teklifi aynı gün iletelim.</div>
+</div>
+</div></div>
+
+<section id="services"><div class="w">
+<div class="sh"><h2 data-t="s_h">Bir yazılım şirketinden beklediğiniz her şey.</h2><p data-t="s_p">Fikirden yayına, yayından bakıma kadar tek ekiple çalışın.</p></div>
+<div class="grid" id="grid"></div>
+</div></section>
+
+<section id="process" style="padding-top:0"><div class="w">
+<div class="sh"><h2 data-t="p_h">Nasıl çalışıyoruz?</h2><p data-t="p_p">Net adımlar, şeffaf iletişim, zamanında teslim.</p></div>
+<div class="steps">
+<div class="step"><h3 data-t="p1h">Keşif</h3><p data-t="p1">İhtiyacınızı ve hedeflerinizi birlikte netleştiririz.</p></div>
+<div class="step"><h3 data-t="p2h">Tasarım</h3><p data-t="p2">Arayüzü ve mimariyi onayınıza sunarız.</p></div>
+<div class="step"><h3 data-t="p3h">Geliştirme</h3><p data-t="p3">Düzenli demolarla ilerler, geri bildirimi anında uygularız.</p></div>
+<div class="step"><h3 data-t="p4h">Yayın ve destek</h3><p data-t="p4">Canlıya alır, izler ve gelişmeye devam ederiz.</p></div>
+</div></div></section>
+
+<section id="tech" style="padding-top:0"><div class="w">
+<div class="sh"><h2 data-t="t_h">Kullandığımız teknolojiler</h2><p data-t="t_p">Projeye uygun, kanıtlanmış ve güncel araçlar.</p></div>
+<div class="tech"><span>React</span><span>Next.js</span><span>Node.js</span><span>TypeScript</span><span>Python</span><span>PHP / Laravel</span><span>.NET</span><span>Flutter</span><span>React Native</span><span>Swift</span><span>Kotlin</span><span>PostgreSQL</span><span>MongoDB</span><span>Docker</span><span>AWS</span><span>Azure</span><span>Figma</span></div>
+<div class="why">
+<div><h3 data-t="w1h">Size özel</h3><p data-t="w1">Hazır şablon değil, işinize göre tasarlanmış yazılım.</p></div>
+<div><h3 data-t="w2h">Her cihazda akıcı</h3><p data-t="w2">Telefon, tablet ve masaüstünde sorunsuz çalışan arayüzler.</p></div>
+<div><h3 data-t="w3h">Doğrudan iletişim</h3><p data-t="w3">Aracısız, hızlı ve WhatsApp üzerinden ulaşılabilir ekip.</p></div>
+</div>
+</div></section>
+
+<div class="contact" id="contact"><section><div class="w">
+<div>
+<h2 data-t="c_h">Projenizi konuşalım.</h2>
+<p class="sub" data-t="c_p">Mesajınız doğrudan WhatsApp’ımıza düşer. Kısa sürede dönüş yaparız.</p>
+<div class="sl">
+<a class="btn wa" data-wa href="#" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg><span data-t="cta1">WhatsApp’tan yazın</span></a>
+<a class="btn gh" href="https://instagram.com/whatilex" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>@whatilex</a>
+</div>
+</div>
+<form id="f">
+<label><span data-t="f1">Adınız</span><input id="n" required autocomplete="name"></label>
+<label><span data-t="f2">Hizmet</span><select id="s"></select></label>
+<label><span data-t="f3">Mesajınız</span><textarea id="m" required></textarea></label>
+<button class="btn wa" type="submit"><svg><use href="#i-wa"/></svg><span data-t="f4">WhatsApp ile gönder</span></button>
+<p class="note" data-t="f5">Gönder’e basınca WhatsApp açılır, mesajınız hazır gelir.</p>
+</form>
+</div></section></div>
+</main>
+
+<footer><div class="w">
+<span>© <span id="y"></span> <b><span class="what">WHAT</span><span class="ilex">ILEX</span></b>. <span data-t="rights">Tüm hakları saklıdır.</span></span>
+<a href="https://instagram.com/whatilex" target="_blank" rel="noopener">Instagram @whatilex</a>
+</div></footer>
+
+<a class="fab" data-wa href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
+<script>
+// WhatsApp numarası: ülke koduyla, + ve boşluksuz (örn. 905551234567)
+var WA_NUMBER = "905395171685";
+var D = {
+tr:{nav1:"Hizmetler",nav2:"Süreç",nav3:"Teknolojiler",nav4:"İletişim",lead:"Web, mobil ve özel yazılım çözümleriyle fikrinizi çalışan bir ürüne dönüştürüyoruz.",cta1:"WhatsApp’tan yazın",cta2:"Hizmetleri keşfedin",online:"çevrimiçi",m1:"Merhaba, e-ticaret sitesi yaptırmak istiyorum.",m2:"Merhaba! Projenizi dinleyelim, teklifi aynı gün iletelim.",
+s_h:"Bir yazılım şirketinden beklediğiniz her şey.",s_p:"Fikirden yayına, yayından bakıma kadar tek ekiple çalışın.",
+p_h:"Nasıl çalışıyoruz?",p_p:"Net adımlar, şeffaf iletişim, zamanında teslim.",p1h:"Keşif",p1:"İhtiyacınızı ve hedeflerinizi birlikte netleştiririz.",p2h:"Tasarım",p2:"Arayüzü ve mimariyi onayınıza sunarız.",p3h:"Geliştirme",p3:"Düzenli demolarla ilerler, geri bildirimi anında uygularız.",p4h:"Yayın ve destek",p4:"Canlıya alır, izler ve gelişmeye devam ederiz.",
+t_h:"Kullandığımız teknolojiler",t_p:"Projeye uygun, kanıtlanmış ve güncel araçlar.",w1h:"Size özel",w1:"Hazır şablon değil, işinize göre tasarlanmış yazılım.",w2h:"Her cihazda akıcı",w2:"Telefon, tablet ve masaüstünde sorunsuz çalışan arayüzler.",w3h:"Doğrudan iletişim",w3:"Aracısız, hızlı ve WhatsApp üzerinden ulaşılabilir ekip.",
+c_h:"Projenizi konuşalım.",c_p:"Mesajınız doğrudan WhatsApp’ımıza düşer. Kısa sürede dönüş yaparız.",f1:"Adınız",f2:"Hizmet",f3:"Mesajınız",f4:"WhatsApp ile gönder",f5:"Gönder’e basınca WhatsApp açılır, mesajınız hazır gelir.",rights:"Tüm hakları saklıdır.",
+wm:"Merhaba, ben {n}. İlgilendiğim hizmet: {s}.\n\n{m}",
+sv:[["Web sitesi geliştirme","Kurumsal siteler, açılış sayfaları ve portallar."],["Mobil uygulama","iOS ve Android için hızlı, akıcı uygulamalar."],["Özel yazılım","İş süreçlerinize göre tasarlanmış sistemler."],["E-ticaret","Satış, ödeme ve stok yönetimi tek yerde."],["UI/UX tasarım","Kullanıcının kolayca anladığı arayüzler."],["Bulut ve DevOps","Güvenli altyapı, otomatik yayın, ölçekleme."],["Yapay zekâ ve otomasyon","Tekrarlayan işleri akıllı sistemlere devredin."],["API ve entegrasyon","ERP, CRM, ödeme ve üçüncü taraf bağlantıları."],["Siber güvenlik","Güvenlik testleri, KVKK uyumu, veri koruma."],["Bakım ve destek","Güncelleme, izleme ve hızlı müdahale."]]},
+en:{nav1:"Services",nav2:"Process",nav3:"Technologies",nav4:"Contact",lead:"We turn your idea into a working product with web, mobile and custom software solutions.",cta1:"Message us on WhatsApp",cta2:"Explore services",online:"online",m1:"Hi, I’d like to build an online store.",m2:"Hello! Let’s hear about your project. We’ll send a quote the same day.",
+s_h:"Everything you expect from a software company.",s_p:"From idea to launch and beyond, work with a single team.",
+p_h:"How we work",p_p:"Clear steps, open communication, on-time delivery.",p1h:"Discovery",p1:"We define your needs and goals together.",p2h:"Design",p2:"We present the interface and architecture for your approval.",p3h:"Development",p3:"We ship in steps with regular demos and act on feedback right away.",p4h:"Launch and support",p4:"We go live, monitor and keep improving.",
+t_h:"Technologies we use",t_p:"Proven, current tools chosen to fit the project.",w1h:"Made for you",w1:"No off-the-shelf templates. Software built around your business.",w2h:"Smooth on every device",w2:"Interfaces that work flawlessly on phone, tablet and desktop.",w3h:"Direct contact",w3:"No middlemen. A fast team you can reach on WhatsApp.",
+c_h:"Let’s talk about your project.",c_p:"Your message lands straight in our WhatsApp. We reply quickly.",f1:"Your name",f2:"Service",f3:"Your message",f4:"Send via WhatsApp",f5:"WhatsApp opens with your message ready to send.",rights:"All rights reserved.",
+wm:"Hello, I’m {n}. Service I’m interested in: {s}.\n\n{m}",
+sv:[["Website development","Corporate sites, landing pages and portals."],["Mobile apps","Fast, smooth apps for iOS and Android."],["Custom software","Systems designed around your workflows."],["E-commerce","Sales, payments and inventory in one place."],["UI/UX design","Interfaces users understand at a glance."],["Cloud and DevOps","Secure infrastructure, automated releases, scaling."],["AI and automation","Hand repetitive work over to smart systems."],["API and integrations","ERP, CRM, payment and third-party connections."],["Cybersecurity","Security testing, compliance, data protection."],["Maintenance and support","Updates, monitoring and fast response."]]}};
+var ICONS=["M3 5h18v12H3zM8 21h8M12 17v4","M7 2h10v20H7zM11 18h2","M8 8l-5 4 5 4M16 8l5 4-5 4M14 5l-4 14","M3 4h2l2.5 11h10L20 7H6M9 20h.01M17 20h.01","M3 3h18v18H3zM3 9h18M9 9v12","M7 18a4 4 0 0 1-.5-8A6 6 0 0 1 18 8.5 4.5 4.5 0 0 1 17.5 18z","M12 3v3M12 18v3M3 12h3M18 12h3M7 7l2 2M15 15l2 2M17 7l-2 2M9 15l-2 2M9 9h6v6H9z","M9 12h6M7 8H5a4 4 0 0 0 0 8h2M17 8h2a4 4 0 0 1 0 8h-2","M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4","M14.5 6.5a4 4 0 0 0-5 5L4 17l3 3 5.5-5.5a4 4 0 0 0 5-5l-2.5 2.5-2-2z"];
+var L="tr";
+try{var sv=localStorage.getItem("wl");if(sv)L=sv;else if(!/^tr/i.test(navigator.language||""))L="en"}catch(e){}
+function wa(t){return "https://wa.me/"+WA_NUMBER+(t?"?text="+encodeURIComponent(t):"")}
+function apply(){
+var d=D[L];document.documentElement.lang=L;
+document.title=L==="tr"?"WHATILEX – Yazılım & Dijital Çözümler":"WHATILEX – Software & Digital Solutions";
+document.querySelectorAll("[data-t]").forEach(function(e){var v=d[e.dataset.t];if(v)e.textContent=v});
+document.querySelectorAll("[data-l]").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.l===L)});
+document.getElementById("grid").innerHTML=d.sv.map(function(s,i){return '<div class="card"><svg viewBox="0 0 24 24"><path d="'+ICONS[i]+'"/></svg><h3>'+s[0]+'</h3><p>'+s[1]+'</p></div>'}).join("");
+var sel=document.getElementById("s"),cur=sel.selectedIndex;
+sel.innerHTML=d.sv.map(function(s){return "<option>"+s[0]+"</option>"}).join("");sel.selectedIndex=Math.max(cur,0);
+document.querySelectorAll("[data-wa]").forEach(function(a){a.href=wa(L==="tr"?"Merhaba, WHATILEX ile bir proje hakkında konuşmak istiyorum.":"Hello, I’d like to talk to WHATILEX about a project.")});
+}
+document.querySelectorAll("[data-l]").forEach(function(b){b.onclick=function(){L=b.dataset.l;try{localStorage.setItem("wl",L)}catch(e){}apply()}});
+document.getElementById("f").onsubmit=function(e){e.preventDefault();
+var t=D[L].wm.replace("{n}",n.value.trim()).replace("{s}",s.value).replace("{m}",m.value.trim());
+window.open(wa(t),"_blank","noopener")};
+var mb=document.getElementById("menu"),lk=document.getElementById("links");
+mb.onclick=function(){var o=lk.classList.toggle("open");mb.setAttribute("aria-expanded",o)};
+lk.onclick=function(){lk.classList.remove("open");mb.setAttribute("aria-expanded",false)};
+document.getElementById("y").textContent=new Date().getFullYear();
+apply();
+</script>
+</body>
+</html>
